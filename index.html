@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TDS Strats</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="theme-color" content="#0a1117">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap bar-in">
+    <a class="brand" href="#" data-i-aria="lib"><b>TDS</b><span>Strats</span></a>
+    <span class="crumb" id="crumb" hidden></span>
+    <div class="top-right">
+      <button class="chip-btn" id="dockToggle" type="button" data-i="dock" aria-pressed="false" hidden></button>
+      <span class="top-count" id="topCount" hidden></span>
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="ru">RU</button>
+        <button type="button" data-lang="en">EN</button>
+      </div>
+      <button class="icon-btn" id="theme" type="button" data-i-aria="theme">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="10" cy="10" r="7"/><path d="M10 3a7 7 0 0 1 0 14z" fill="currentColor"/></svg>
+      </button>
+    </div>
+  </div>
+  <i class="top-bar" id="topBar"></i>
+</header>
+
+<main>
+  <section id="viewLib" hidden>
+    <div class="wrap lib">
+      <div class="lib-head"><h1 data-i="lib"></h1><p>Tower Defense Simulator</p></div>
+      <div class="tools">
+        <label class="search">
+          <span class="sr-only" data-i="search"></span>
+          <input id="q" type="search" data-i-ph="search" autocomplete="off">
+          <kbd>/</kbd>
+        </label>
+        <div class="teams" id="teams" hidden></div>
+      </div>
+      <ul class="rows" id="rows"></ul>
+      <div class="empty" id="empty" hidden>
+        <p data-i="empty"></p>
+        <button class="btn" id="clear" type="button" data-i="clear"></button>
+      </div>
+    </div>
+  </section>
+
+  <article id="viewStrat" hidden>
+    <header class="mast">
+      <div class="wrap mast-in">
+        <div class="art" id="art"></div>
+        <div class="mast-text">
+          <p class="team" id="mTeam"></p>
+          <h1 id="mMode"></h1>
+          <p class="map" id="mMap"></p>
+          <div class="mods"><span class="mods-l" data-i="mods"></span><ul id="mMods"></ul></div>
+        </div>
+        <div class="mast-prog">
+          <div class="big"><b id="pDone">0</b><span id="pTotal">/0</span></div>
+          <span class="meter"><i id="pBar"></i></span>
+          <p id="pStatus"></p>
+        </div>
+      </div>
+    </header>
+
+    <div class="wrap">
+      <section class="ruler" id="ruler" data-i-aria="wavesAria"></section>
+
+      <div class="layout">
+        <section class="notes">
+          <div class="sec-head"><h2 class="sec" data-i="notes"></h2></div>
+          <ul class="note-list" id="notes"></ul>
+        </section>
+
+        <section class="steps-sec">
+          <div class="sec-head">
+            <h2 class="sec" data-i="steps"></h2>
+            <button class="link-btn" id="reset" type="button"></button>
+          </div>
+          <ol class="steps" id="steps"></ol>
+        </section>
+
+        <aside class="side" id="side">
+          <div class="build-box">
+            <div class="build-head"><h2 class="sec" data-i="map"></h2><button class="link-btn" id="mapEdit" type="button" data-i="place"></button></div>
+            <div class="stage" id="stage"></div>
+          </div>
+          <div class="build-box" id="buildBox">
+            <div class="build-head"><h2 class="sec" data-i="build"></h2><span id="buildTotal"></span></div>
+            <ul class="build-list" id="buildList"></ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <div class="dock" id="dock" hidden>
+      <div class="wrap dock-in">
+        <div class="dock-text"><span class="dock-n" id="dockN"></span><span class="dock-t" id="dockT"></span></div>
+        <span class="dock-hint" data-i="hint"></span>
+        <div class="dock-btns">
+          <button class="btn" id="undo" type="button" data-i="back"></button>
+          <button class="btn primary" id="doneBtn" type="button" data-i="done"></button>
+        </div>
+      </div>
+    </div>
+  </article>
+</main>
+
+<div class="ov" id="ov" hidden role="dialog" aria-modal="true" aria-labelledby="ovTitle">
+  <div class="ov-in">
+    <div class="ov-bar">
+      <h2 class="sec" id="ovTitle" data-i="map"></h2>
+      <button class="btn" id="ovClose" type="button" data-i="close"></button>
+    </div>
+    <div class="ov-tools" id="ovTools"></div>
+    <div class="ov-body"><div class="stage big" id="stageBig"></div></div>
+  </div>
+</div>
+<input type="file" id="mapFile" accept="image/*" hidden>
+
+<script src="strats.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
